@@ -1,5 +1,4 @@
-const postModel = require("../models/posts_model");
-const PostModel = require("../models/posts_model");
+const PostModel = require("../models/post_models");
 
 const getAllPosts = async (req, res) => {
   const filter = req.query.owner;
@@ -11,6 +10,7 @@ const getAllPosts = async (req, res) => {
       const posts = await PostModel.find();
       res.send(posts);
     }
+
   } catch (error) {
     res.status(400).send(error.message);
   }
@@ -36,16 +36,6 @@ const createPost = async (req, res) => {
   try {
     const post = await PostModel.create(postBody);
     res.status(201).send(post);
-  } catch (error) {
-    res.status(400).send(error.message);
-  }
-};
-
-const deletePost = async (req, res) => {
-  const postId = req.params.id;
-  try {
-    const rs = await postModel.findByIdAndDelete(postId);
-    res.status(200).send(rs);
   } catch (error) {
     res.status(400).send(error.message);
   }
@@ -83,7 +73,6 @@ const updatePost = async (req, res) => {
 module.exports = {
   getAllPosts,
   createPost,
-  deletePost,
   getPostById,
   getPostsBySender,
   updatePost

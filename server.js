@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 
 const express = require("express");
 const app = express();
-const postsRoute = require("./routes/posts_route");
+const postsRoute = require("./routes/post_routes");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/posts", postsRoute);
