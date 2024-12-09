@@ -1,13 +1,10 @@
-const express = require('express');
-const app = express(); 
-const dotenv = require('dotenv').config();
-const port = process.env.PORT; 
-const mongoose = require('mongoose'); 
-const postsRoute = require('./routes/posts_routes'); 
-app.use('/posts', postsRoute);  
+const initApp = require("./server");
+const port = process.env.PORT;
 
-
-app.listen(port, () => {
+console.log("1");
+initApp().then((app) => {
+  app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
-  });
-  
+});
+
+});
