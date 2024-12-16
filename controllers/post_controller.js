@@ -1,4 +1,4 @@
-const PostModel = require("../models/post_models");
+const PostModel = require("../models/post_model");
 
 const getAllPosts = async (req, res) => {
   const filter = req.query.owner;
