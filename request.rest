@@ -4,7 +4,7 @@ GET http://localhost:3000/posts
 
 ###
 
-GET http://localhost:3000/posts?owner=ophir
+GET http://localhost:3000/posts?owner=linophir
 
 ###
 
@@ -17,7 +17,7 @@ Content-Type: application/json
 
 {
     "title": "Hello",
-    "owner": "Kevin",
+    "owner": "linophir",
     "content": "Hello World..."
 }
 
@@ -27,7 +27,7 @@ DELETE http://localhost:3000/posts/6734b0c818a1cf8344804554
 
 ###
 
-GET http://localhost:3000/posts?sender=ophir
+GET http://localhost:3000/posts?sender=linophir 
 
 ###
 
@@ -37,4 +37,42 @@ Content-Type: application/json
 {
     "title": "Updated Title",
     "content": "This is the updated content of the post."
+}
+
+
+### 
+POST /comments
+Content-Type: application/json
+Body:
+{
+  "postId": "ObjectId",
+  "author": "string",
+  "content": "string"
+}
+
+### 
+GET /comments/post/{postId}
+Response:
+[
+  {
+    "postId": "ObjectId",
+    "author": "string",
+    "content": "string",
+    "createdAt": "timestamp"
+  }
+]
+
+### 
+PUT /comments/{id}
+Content-Type: application/json
+Body:
+{
+  "content": "updated content"
+}
+
+### 
+DELETE /comments/{id}
+Response:
+{
+  "message": "Comment deleted successfully"
 }

@@ -1,10 +1,6 @@
 const initApp = require("./server");
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
-console.log("1");
-initApp().then((app) => {
-  app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
-});
-
+initApp.listen(port, () => {
+  console.log(`Server is running at http://localhost:${port}`);
 });
